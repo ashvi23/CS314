@@ -1,7 +1,20 @@
 Data Structures:
 - link list
+- arrays
 - binary search tree
+- one unique feature
+
 - hash table
 - stacks 
 - queues
-- arrays
+- heaps
+- how to make your "own" struct
+
+Meet the Language
+  - History
+  - What its useful for -> Why use it
+  - Real world applications
+
+Type of language (functional imperative...)
+Whats cool/nifty about this language (syntax, functionality...)
+Resources (Hackage Hoogle...)
