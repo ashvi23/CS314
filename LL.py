@@ -1,7 +1,7 @@
 #Python Linked List Implementation
 
 #Node Class
-class Node(object):
+class Node:
 	def __init__ (self, data = None, next = None):
 		self.data = data
 		self.next = next
@@ -16,7 +16,7 @@ class Node(object):
 		self.next = next_node
 		
 #LL Class
-class LL(object):
+class LL:
 	def __init__ (self, head = None):
 		self.head = head
 		
