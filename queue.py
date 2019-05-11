@@ -10,6 +10,7 @@ class Queue:
 		
 	def dequeue(self, data):
 		temp = self.queue.pop()
+		return temp
 		
 	def peek(self):
 		if queue:
