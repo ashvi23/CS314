@@ -11,9 +11,30 @@ data BST a= Empty | Node a (BST a) (BST a) deriving (Eq, Ord, Show, Read)
 -isEmpty
 -doesExit
 -}
+
+{-HOW TO RUN:
+ghci
+:load bst
+let nums = [1,2,3,4] -- the numbers you want in the tree 
+lt nt = makeTree nums -- creates the tree
+insertNode _ nt -- inserts a specified element to the tree
+deleteNode _ nt -- deletes a specified element from the tree
+	-> must exist in the given tree ex you cant 
+	create nt then insert a node and then delete that inserted node usng nt, 
+	because nt is immutable only copies are created of nt. 
+	Original nt does not have new node
+
+to insert a node and have it be a part of that list do
+let xt = insertNode _ nt
+deleteNode xt _ will work
+
+-}
+
+-- takes in a list and makes it into a tree
 makeTree :: (Ord a) => [a] -> BST a
 makeTree x = foldr insertNode Empty $ reverse x
 
+-- creates a single node with two empty children
 createNode :: a -> BST a
 createNode val = Node val Empty Empty
 
