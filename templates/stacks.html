@@ -5,16 +5,15 @@
       padding: 10px ;
       border: 1px solid green ;
     }
-    table.center{
-        margin-left: auto;
-        margin-right: auto;
-        width: 400px;
+    table,th,td {
+  		margin: 40px;
+        border: 1px solid black;
+  		border-collapse: collapse;
+        width: 500px;
+        padding:10px;
+        
     }
-    th, td {
-      padding: 15px;
-      text-align: center;
-    }
-
+   
 	#codebox{
       background-color: #cfc;
       padding: 5px;
@@ -37,6 +36,9 @@
 			<!--
 			.tab2 {margin-left: 60px;}
 			-->
+            <!--
+			.tab3 {margin-left: 80px;}
+			-->
 </style>
 
 
@@ -46,34 +48,69 @@
 		
 		
 			<h1>Stacks</h1>
-			<p> The following stacks are implemented using First In First Out (FIFO) method.<br/> </p>
+			<p class="tab"> The following stacks are implemented using Last In First Out (LIFO) method. LIFO means that the element inserted most recently or the one at "the top of the stack," will be the first element to be deleted. This is data structure that can be thought of as linear. There are a few operations that can be performed on this data structure. In this tutorial, we have implemented inserting (push), deleting (pop), viewing (peek) and checking if the stack contains elements (isEmpty). There are many ways to implement this structure, but we have defined our own stack and implemented corresponding methods.<br/> </p>
 			<p style = "font-family:georgia,garamond,serif;font-size:20px;font-style:italic;" class="tab"> <u> Python:</u></br></p>
 			
 			<div id="codebox">
 			<p class="tab"> <code> Insert formatted code here </code></br></p>
 			</div>
 			
-			<p class="tab"> <u>Big O analysis: </u>
+			<p class="tab"> <u>Big O Analysis: </u>
 				<p class = "tab2"> Push: O()<br/>
+                <p class = "tab3"> [SOME EXPLANATION]<br/>
 				<p class = "tab2"> Pop: O()<br/>
-				<p class = "tab2"> Peek: O() <br/></p>
+                <p class = "tab3"> [SOME EXPLANATION]<br/>
+				<p class = "tab2"> Peek: O() <br/>
+                <p class = "tab3"> [SOME EXPLANATION]<br/>
+                <p class = "tab2"> isEmpty: O() <br/></p>
+                <p class = "tab3"> [SOME EXPLANATION]<br/>
 			
-			<p>Racket:</p>
-			<p class="tab"> <code> Insert formatted code here</code></p>
-			<p class="tab">Big O analysis:</p>
-			<p></p>
-			<p>Haskell:</p>
-			<p class="tab"> <code> Insert formatted code here</code></p>
-			<p class="tab">Big O analysis:</p>
-			<p></p>
-			<p>At a Glance</p>
+		
+			
+            <p style = "font-family:georgia,garamond,serif;font-size:20px;font-style:italic;" class="tab"><u>At a Glance</u>
+           <table>
+            <tr bgcolor = #D3D3D3>
+              
+              <th>Methods</th>
+              <th>Python</th>
+              <th>Racket</th>
+              <th>Haskell</th>
+            </tr>
+            <tr>
+              <td>Push</td>
+              <td>O()</td>
+              <td>O()</td>
+              <td>O()</td>
+            </tr>
+            <tr>
+              <td>Pop</td>
+              <td>O()</td>
+              <td>O()</td>
+              <td>O()</td>
+            </tr>
+            <tr>
+            <td>Peek</td>
+              <td>O()</td>
+              <td>O()</td>
+              <td>O()</td>
+            </tr>
+            <tr>
+            <td>isEmpty</td>
+              <td>O()</td>
+              <td>O()</td>
+              <td>O()</td>
+            </tr>
+          </table>
+
+            </p>
+            
+            
             
 			<p></p>
-			<p>Functional vs Imperative</p>
+			<p style = "font-family:georgia,garamond,serif;font-size:20px;font-style:italic;" class="tab"><u>Functional vs Imperative</u></p>
 			<p class="tab"> Which language is better to use? Why? Talk about ease of implementation.</p>
-			<p>Static vs Dynamic</p>
+			<p style = "font-family:georgia,garamond,serif;font-size:20px;font-style:italic;" class="tab"><u>Static vs Dynamic</u></p>
 			<p class="tab"> Which language is better to use? Why? Talk about ease of implementation.</p>
 		</div>
 	</body>
-</html> 
-
+</html>
