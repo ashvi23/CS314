@@ -13,23 +13,24 @@ def functional():
 
 @app.route('/Imperative')
 def imperative():
-	output = 'Imperative'
-	return output
+	return render_template('imperative.html') 
 
 @app.route('/static_page')
 def static_page():
-	output = 'Static'
-	return output
+	return render_template('static_page.html') 
 
 @app.route('/Dynamic')
 def dynamic():
-	output = 'Dynamic'
-	return output
+	return render_template('dynamic.html') 
 
 @app.route('/DS')
 def data_structure():
 	output = 'Data Structures'
 	return output
+
+@app.route('/Stacks/')
+def stacks():
+	return render_template('stacks.html')
 
 if __name__ == '__main__':
 	port = int(os.environ.get('PORT', 5000))
