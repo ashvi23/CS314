@@ -118,13 +118,13 @@ class Stack:
 			</div>
 			
 			<p3 class="tab"> Big O Analysis:</p3>
-				<p class = "tab2"> Push: O()<br/>
+				<p class = "tab2"> Push: O(1)<br/>
                 <p class = "tab3"> [Some Explanation]<br/>
-				<p class = "tab2"> Pop: O()<br/>
+				<p class = "tab2"> Pop: O(1)<br/>
                 <p class = "tab3"> [Some Explanation]<br/>
-				<p class = "tab2"> Peek: O() <br/>
+				<p class = "tab2"> Peek: O(1) <br/>
                 <p class = "tab3"> [Some Explanation]<br/>
-                <p class = "tab2"> isEmpty: O() <br/>
+                <p class = "tab2"> isEmpty: O(1) <br/>
                 <p class = "tab3"> [Some Explanation]<br/><br/></p>
 			
 		 <h2> <p2 class="tab">  Racket:</br></p2></h2>
@@ -166,13 +166,13 @@ class Stack:
 			</div>
 			
 			<p3 class="tab"> Big O Analysis:</p3>
-				<p class = "tab2"> Push: O()<br/>
+				<p class = "tab2"> Push: O(1)<br/>
+                <p class = "tab3"> For push, the new element is being added to the front of the list using Cons. Since, we are not traversing the stack in order to find a place to insert the element, like we might in a link list, the Big O is 1. The access time and operation time for each push is constant and independent of the length of the stack. <br/>
+				<p class = "tab2"> Pop: O(1)<br/>
                 <p class = "tab3"> [Some Explanation]<br/>
-				<p class = "tab2"> Pop: O()<br/>
+				<p class = "tab2"> Peek: O(1) <br/>
                 <p class = "tab3"> [Some Explanation]<br/>
-				<p class = "tab2"> Peek: O() <br/>
-                <p class = "tab3"> [Some Explanation]<br/>
-                <p class = "tab2"> isEmpty: O() <br/>
+                <p class = "tab2"> isEmpty: O(1) <br/>
                 <p class = "tab3"> [Some Explanation]<br/><br/></p>
 			
 		 <h2> <p2 class="tab">  Haskell:</br></p2></h2>
@@ -204,14 +204,14 @@ myIsEmpty (MyStack xs) = if length xs == 0
 			</div>
 			
 			<p3 class="tab"> Big O Analysis:</p3>
-				<p class = "tab2"> Push: O()<br/>
-                <p class = "tab3"> [Some Explanation]<br/>
-				<p class = "tab2"> Pop: O()<br/>
-                <p class = "tab3"> [Some Explanation]<br/>
-				<p class = "tab2"> Peek: O() <br/>
-                <p class = "tab3"> [Some Explanation]<br/>
-                <p class = "tab2"> isEmpty: O() <br/>
-                <p class = "tab3"> [Some Explanation]<br/><br/></p>
+				<p class = "tab2"> Push: O(1)<br/>
+                <p class = "tab3"> Haskell's implementation of push is also O(1). In order to add to the stack, we simply need to concatnate the new element using ":". No matter what is provided as an input, the push algorith will still take the same amount of time. Using ":" results in one operation, and therefore, the Big O is O(1). <br/>
+				<p class = "tab2"> Pop: O(1)<br/>
+                <p class = "tab3"> In order to pop an element of the stack, we simply have to remove the element thats on the top of the stack. If a stack looks like [2,19,45,21,7,5], applying the pop function to it would result in a new stack that looks like [19,45,21,7,5]. The actual values and input of the stack has no impact on the operation time, because we are only deleting the first element of the stack. This makes pop another function that has a Big O of 1.  <br/>
+				<p class = "tab2"> Peek: O(1) <br/>
+                <p class = "tab3"> In peek, the first element/top of the stack is accessed. What the element actually is does not matter. Since the operation is happening to the first element and the operation time remains the same despite the number of elements in the stack, the Big O is O(1) <br/>
+                <p class = "tab2"> isEmpty: O(1) <br/>
+                <p class = "tab3"> isEmpty is a bool function that checks whether or not <br/><br/></p>
 			
 		
 			
@@ -226,27 +226,27 @@ myIsEmpty (MyStack xs) = if length xs == 0
             </tr>
             <tr>
               <td>Push</td>
-              <td>O()</td>
-              <td>O()</td>
-              <td>O()</td>
+              <td>O(1)</td>
+              <td>O(1)</td>
+              <td>O(1)</td>
             </tr>
             <tr>
               <td>Pop</td>
-              <td>O()</td>
-              <td>O()</td>
-              <td>O()</td>
+              <td>O(1)</td>
+              <td>O(1)</td>
+              <td>O(1)</td>
             </tr>
             <tr>
             <td>Peek</td>
-              <td>O()</td>
-              <td>O()</td>
-              <td>O()</td>
+              <td>O(1)</td>
+              <td>O(1)</td>
+              <td>O(1)</td>
             </tr>
             <tr>
             <td>isEmpty</td>
-              <td>O()</td>
-              <td>O()</td>
-              <td>O()</td>
+              <td>O(1)</td>
+              <td>O(1)</td>
+              <td>O(1)</td>
             </tr>
           </table>
 
@@ -263,3 +263,4 @@ myIsEmpty (MyStack xs) = if length xs == 0
 		</div>
 	</body>
 </html>
+
