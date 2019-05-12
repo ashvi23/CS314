@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<link href="https://fonts.googleapis.com/css?family=Cardo|Dancing+Script|Inconsolata|Lato|Raleway" rel="stylesheet">
+<style>
+    #demobox {
+      background-color: #cfc ;
+      padding: 10px ;
+      border: 1px solid green ;
+    }
+    table,th,td {
+  		margin: 40px;
+        border: 1px solid black;
+  		border-collapse: collapse;
+        width: 500px;
+        padding:5px;
+        
+    }
+   
+	#codebox{
+      background-color: #D9F6D9;
+      padding: 5px;
+      width: 600px;
+      border: 1.3px solid green;
+      margin: 40px;
+	}
+	
+	code{
+		font-family:monospace;
+	}
+	h1{
+    	 font-family: 'Dancing Script', Georgia, Times, serif;
+         font-size: 59px;
+         line-height: 60px;
+         text-shadow: 4px 4px 4px #aaa;
+         margin:10px;
+    }
+    h2{
+    	font-family: 'Raleway', sans-serif;
+        font-size:21px;
+    }
+    p1{
+     font-family: 'Cardo', Georgia, Times, serif;
+     font-size: 15px;
+     line-height: 20px;
+     }
+    p2{
+     font-family: 'Cardo', Georgia, Times, serif;
+     font-size: 23px;
+     line-height: 20px;
+     }
+    p3{
+     font-family: 'Lato', sans-serif;
+     font-size: 17px;
+     line-height: 20px;
+    }
+    p4{
+   
+    font-family: 'Inconsolata', monospace;
+    font-size:13px;
+    line-height: 15px;
+    }
+    
+</style>
+
+<style type = "text/css">
+			<!--
+			.tab {margin-left: 30px;}
+			-->
+			
+			<!--
+			.tab2 {margin-left: 60px;}
+			-->
+            <!--
+			.tab3 {margin-left: 80px;}
+			-->
+          
+</style>
+
+
+<html>
+	<body>
+    	
+		<div class= "Link Lists">
+		
+		
+			<h1>Link Lists</h1>
+			<p1 class="tab"> talk about the DS <br/> </p1>
+			
+            <h2> <p2 class="tab">  Python:</br></p2></h2>
+			
+			<div id="codebox">
+            <pre>
+			<p class="tab"> <code>  
+#Python Linked List Implementation
+
+#Node Class
+class Node:
+	def __init__ (self, data = None, next = None):
+		self.data = data
+		self.next = next
+		
+	def getData(self):
+		return self.data
+		
+	def getNext(self):
+		return self.next
+		
+	def setNext(self, next_node):
+		self.next = next_node
+		
+#LL Class
+class LL:
+	def __init__ (self, head = None):
+		self.head = head
+		
+	#Insert Method
+	def insert(self, data):
+		node = Node(data)
+		node.setNext(self.head)
+		self.head = node
+		
+	#Delete Method
+	def delete(self, data):
+		ptr = self.head
+		prev = None
+		while ptr is not None:
+			if ptr.getData == data:
+				prev.setNext(ptr.getNext())
+				break
+			else:
+				prev = ptr
+				ptr = ptr.getNext()
+		if prev is None:
+			self.head = ptr.getNext()
+		if ptr is None:
+			print "Data is not in linked list."
+
+            </code>
+			</pre>
+			
+			</div>
+			
+			<p3 class="tab"> Big O Analysis:</p3>
+				<p class = "tab2"> Insert: O() <br/>
+                <p class = "tab3"> [Some Explanation]<br/>
+				<p class = "tab2"> Delete: O()<br/>
+                <p class = "tab3"> [Some Explanation]<br/>
+				<p class = "tab2"> getNext O() <br/>
+                <p class = "tab3"> [Some Explanation]<br/>
+                <p class = "tab2"> getData O() <br/>
+                <p class = "tab3"> [Some Explanation]<br/>
+                <p class = "tab2"> setNext O(1) <br/>
+                <p class = "tab3"> [Some Explanation]<br/><br/></p>
+			
+		 <h2> <p2 class="tab">  Racket:</br></p2></h2>
+			
+			<div id="codebox">
+            <pre>
+			<p class="tab"> 
+            <code> 
+
+            </code>
+            </pre>
+            </p>
+			</div>
+			
+			<p3 class="tab"> Big O Analysis:</p3>
+				<p class = "tab2"> method: O(1)<br/>
+                <p class = "tab3"> Explain <br/>
+				<p class = "tab2"> method: O(1)<br/>
+                <p class = "tab3"> [Some Explanation]<br/>
+				<p class = "tab2"> method: O(1) <br/>
+                <p class = "tab3"> [Some Explanation]<br/>
+                <p class = "tab2"> method: O(1) <br/>
+                <p class = "tab3"> [Some Explanation]<br/><br/></p>
+			
+		 <h2> <p2 class="tab">  Haskell:</br></p2></h2>
+			
+			<div id="codebox">
+            <pre>
+			<p class="tab"> <code>
+insert code
+           	</code>
+            </pre>
+			</div>
+			
+			<p3 class="tab"> Big O Analysis:</p3>
+				<p class = "tab2"> Push: O(1)<br/>
+                <p class = "tab3"> Explain <br/>
+				<p class = "tab2"> Pop: O(1)<br/>
+                <p class = "tab3"> Explain <br/>
+				<p class = "tab2"> Peek: O(1) <br/>
+                <p class = "tab3"> Explain<br/>
+                <p class = "tab2"> isEmpty: O(1) <br/>
+                <p class = "tab3"> Explain<br/><br/></p>
+			
+		
+			
+            <p2 class="tab">At a Glance</p2>
+           <p3><table>
+            <tr bgcolor = #D3D3D3>
+              
+              <th>Methods</th>
+              <th>Python</th>
+              <th>Racket</th>
+              <th>Haskell</th>
+            </tr>
+            <tr>
+              <td>Push</td>
+              <td>O(1)</td>
+              <td>O(1)</td>
+              <td>O(1)</td>
+            </tr>
+            <tr>
+              <td>Pop</td>
+              <td>O(1)</td>
+              <td>O(1)</td>
+              <td>O(1)</td>
+            </tr>
+            <tr>
+            <td>Peek</td>
+              <td>O(1)</td>
+              <td>O(1)</td>
+              <td>O(1)</td>
+            </tr>
+            <tr>
+            <td>isEmpty</td>
+              <td>O(1)</td>
+              <td>O(1)</td>
+              <td>O(1)</td>
+            </tr>
+          </table>
+
+            </p3>
+            
+            
+
+			<p2 class="tab"> Functional vs Imperative</p2>
+			<p class="tab"> Which language is better to use? Why? Talk about ease of implementation.<br/><br/></p>
+			<p2 class="tab">Static vs Dynamic</p2>
+			<p class="tab"> Which language is better to use? Why? Talk about ease of implementation.<br/></p>
+            <p4 class="tab"> View More DS: <br/>
+             <p4 class= "tab">Back to Main: </p4>
+		</div>
+	</body>
+</html>
+
