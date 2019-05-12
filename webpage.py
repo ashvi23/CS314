@@ -34,13 +34,13 @@ def stacks():
 
 @app.route('/Linklist')
 def stacks():
-	return render_template('stacks.html')
+	return render_template('linklist.html')
 @app.route('/BST')
 def stacks():
-	return render_template('stacks.html')
+	return render_template('bst.html')
 @app.route('/Queues')
 def stacks():
-	return render_template('stacks.html')
+	return render_template('queues.html')
 
 if __name__ == '__main__':
 	port = int(os.environ.get('PORT', 5000))
