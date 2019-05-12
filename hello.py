@@ -7,7 +7,7 @@ app = Flask(__name__) #create an instance of the Flask library
 def index():
 		return render_template('test.html')
 
-@app.route('/second_page') #whenever this webserver is called with <hostname:port>/hello then this section is called
+@app.route('/Hello') #whenever this webserver is called with <hostname:port>/hello then this section is called
 def hello(): #The subroutine name that handles the call
 	output = 'Hello World'
 	return output #Whatever is returned from this subroutine is what is returned to the requester and is shown on the browser page
