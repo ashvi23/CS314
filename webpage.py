@@ -9,8 +9,7 @@ def main():
 
 @app.route('/Functional') 
 def functional():
-	output = 'Functional'
-	return output 
+	return render_template('functional.html') 
 
 @app.route('/Imperative')
 def imperative():
