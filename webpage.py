@@ -30,6 +30,8 @@ def dynamic():
 def data_structure():
 	output = 'Data Structures'
 	return output
-
+@app.route('/Stacks/')
+def stacks():
+	return render_template('stacks.html')
 if __name__ == '__main__':
 	app.run(host='0.0.0.0', port = 5000)
