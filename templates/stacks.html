@@ -119,13 +119,13 @@ class Stack:
 			
 			<p3 class="tab"> Big O Analysis:</p3>
 				<p class = "tab2"> Push: O(1)<br/>
-                <p class = "tab3"> [Some Explanation]<br/>
+                <p class = "tab3"> Push involves appending a piece of data at the top of the stack. Because you are not sorting the stack or accessing any elements inside the stack, the Big O is O(1).<br/>
 				<p class = "tab2"> Pop: O(1)<br/>
-                <p class = "tab3"> [Some Explanation]<br/>
+                <p class = "tab3"> Pop accesses the most recent element of the stack which is at the front. Since it is only dealing with the top most element, the big O is O(1).<br/>
 				<p class = "tab2"> Peek: O(1) <br/>
-                <p class = "tab3"> [Some Explanation]<br/>
+                <p class = "tab3"> In peek, the algorithm implemented checks if the stack has elements/exists and if it does then it returns the last added element. In this algorithm, at most two operations happen, checking if the stack exists, and returning the element, and both of these operations occur in O(1) time because the amount of elements in the stack have no impact on the runtime of the function.  <br/>
                 <p class = "tab2"> isEmpty: O(1) <br/>
-                <p class = "tab3"> [Some Explanation]<br/><br/></p>
+                <p class = "tab3"> isEmpty finds out whether the stack is empty or not by checking if there are one or more elements in the stack. To do this, it must "peek" at the stack. Since the operation time is independent of the number of elements of the stack, the big O is O(1).<br/><br/></p>
 			
 		 <h2> <p2 class="tab">  Racket:</br></p2></h2>
 			
@@ -169,11 +169,11 @@ class Stack:
 				<p class = "tab2"> Push: O(1)<br/>
                 <p class = "tab3"> For push, the new element is being added to the front of the list using Cons. Since, we are not traversing the stack in order to find a place to insert the element, like we might in a link list, the Big O is 1. The access time and operation time for each push is constant and independent of the length of the stack. <br/>
 				<p class = "tab2"> Pop: O(1)<br/>
-                <p class = "tab3"> [Some Explanation]<br/>
+                <p class = "tab3"> This implementation of pop uses cdr on the stack. Since this is only accessing the first element, the big O is O(1).<br/>
 				<p class = "tab2"> Peek: O(1) <br/>
-                <p class = "tab3"> [Some Explanation]<br/>
+                <p class = "tab3"> In peek(), the access time is also O(1) because you only have to car the first element of the list. Accessing the top most element is a one time operation that is independent of the number of elements in the list. <br/>
                 <p class = "tab2"> isEmpty: O(1) <br/>
-                <p class = "tab3"> [Some Explanation]<br/><br/></p>
+                <p class = "tab3"> Is Empty is also O(1) because once again, you only have to access the stack once. If when the stack is accessed, there is an element inside that means the stack is not empty, otherwise, the stack is empty.<br/><br/></p>
 			
 		 <h2> <p2 class="tab">  Haskell:</br></p2></h2>
 			
