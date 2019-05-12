@@ -83,7 +83,7 @@
 		
 		
 			<h1>Stacks</h1>
-			<p1 class="tab"> The following stacks are implemented using Last In First Out (LIFO) method. LIFO means that the element inserted most recently or the one at "the top of the stack," will be the first element to be deleted. This is data structure that can be thought of as linear. There are a few operations that can be performed on this data structure. In this tutorial, we have implemented inserting (push), deleting (pop), viewing (peek) and checking if the stack contains elements (isEmpty). There are many ways to implement this structure, but we have defined our own stack and implemented corresponding methods.<br/> </p1>
+			<p1 class="tab"> The following stacks are implemented using Last In First Out (LIFO) method. LIFO means that the element inserted most recently or the one at "the top of the stack," will be the first element to be deleted. This is data structure that can be thought of as linear. There are a few operations that can be performed on this data structure. In this tutorial, we have implemented inserting (push), deleting (pop), viewing (peek) and checking if the stack contains elements (isEmpty). There are many ways to implement this structure, but we have defined our own stack and implemented corresponding methods. <br/></p1>
 			
             <h2> <p2 class="tab">  Python:</br></p2></h2>
 			
@@ -211,7 +211,7 @@ myIsEmpty (MyStack xs) = if length xs == 0
 				<p class = "tab2"> Peek: O(1) <br/>
                 <p class = "tab3"> In peek, the first element/top of the stack is accessed. What the element actually is does not matter. Since the operation is happening to the first element and the operation time remains the same despite the number of elements in the stack, the Big O is O(1) <br/>
                 <p class = "tab2"> isEmpty: O(1) <br/>
-                <p class = "tab3"> isEmpty is a bool function that checks whether or not <br/><br/></p>
+                <p class = "tab3"> isEmpty is a bool function that checks whether or not the stack has elements in it. In order to check if a stack is empty, the function only needs to chek the topmost element because if it has atleast one or more element, then the stack is not exmpty. Because of this, the big O is O(1). The access time is constant for the same reason as it is peek().<br/><br/></p>
 			
 		
 			
@@ -255,7 +255,8 @@ myIsEmpty (MyStack xs) = if length xs == 0
             
 
 			<p2 class="tab"> Functional vs Imperative</p2>
-			<p class="tab"> Which language is better to use? Why? Talk about ease of implementation.<br/><br/></p>
+			<p class="tab"> Which language is better to use? Why? Talk about ease of implementation.
+			In this case, both functional and imperative languages implement stacks with the same Big O.<br/><br/></p>
 			<p2 class="tab">Static vs Dynamic</p2>
 			<p class="tab"> Which language is better to use? Why? Talk about ease of implementation.<br/></p>
             <p4 class="tab"> View More DS: <br/>
