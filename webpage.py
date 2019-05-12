@@ -40,6 +40,11 @@ def bst():
 @app.route('/Queue/')
 def queue():
 	return render_template('queue.html')
+
+@app.route('/languages')
+def lang():
+	return render_template('lang.html')
+
 if __name__ == '__main__':
 	port = int(os.environ.get('PORT', 5000))
 	app.run(host='0.0.0.0', port = port)
