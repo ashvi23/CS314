@@ -31,13 +31,13 @@ def data_structure():
 @app.route('/Stacks/')
 def stacks():
 	return render_template('stacks.html')
-@app.route('/Linklist/')
+@app.route('/Linkedlist/')
 def linklist():
 	return render_template('linklist.html')
 @app.route('/BST/')
 def bst():
 	return render_template('bst.html')
-@app.route('/Queue/')
+@app.route('/Queues/')
 def queue():
 	return render_template('queue.html')
 
