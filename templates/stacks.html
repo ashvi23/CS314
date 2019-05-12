@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<link href="https://fonts.googleapis.com/css?family=Cardo|Dancing+Script|Inconsolata|Lato|Raleway" rel="stylesheet">
+<style>
+    #demobox {
+      background-color: #cfc ;
+      padding: 10px ;
+      border: 1px solid green ;
+    }
+    table,th,td {
+  		margin: 40px;
+        border: 1px solid black;
+  		border-collapse: collapse;
+        width: 500px;
+        padding:5px;
+        
+    }
+   
+	#codebox{
+      background-color: #cfc;
+      padding: 5px;
+      width: 600px;
+      border: 1.3px solid green;
+      margin: 40px;
+	}
+	
+	code{
+		font-family:monospace;
+	}
+	h1{
+    	 font-family: 'Dancing Script', Georgia, Times, serif;
+         font-size: 59px;
+         line-height: 60px;
+         text-shadow: 4px 4px 4px #aaa;
+         margin:10px;
+    }
+    h2{
+    	font-family: 'Raleway', sans-serif;
+        font-size:21px;
+    }
+    p1{
+     font-family: 'Cardo', Georgia, Times, serif;
+     font-size: 15px;
+     line-height: 20px;
+     }
+    p2{
+     font-family: 'Cardo', Georgia, Times, serif;
+     font-size: 23px;
+     line-height: 20px;
+     }
+    p3{
+     font-family: 'Lato', sans-serif;
+     font-size: 17px;
+     line-height: 20px;
+    }
+    p4{
+   
+    font-family: 'Inconsolata', monospace;
+    font-size:13px;
+    line-height: 15px;
+    }
+    
+</style>
+
+<style type = "text/css">
+			<!--
+			.tab {margin-left: 30px;}
+			-->
+			
+			<!--
+			.tab2 {margin-left: 60px;}
+			-->
+            <!--
+			.tab3 {margin-left: 80px;}
+			-->
+          
+</style>
+
+
+<html>
+	<body>
+    	
+		<div class= "Stacks">
+		
+		
+			<h1>Stacks</h1>
+			<p1 class="tab"> The following stacks are implemented using Last In First Out (LIFO) method. LIFO means that the element inserted most recently or the one at "the top of the stack," will be the first element to be deleted. This is data structure that can be thought of as linear. There are a few operations that can be performed on this data structure. In this tutorial, we have implemented inserting (push), deleting (pop), viewing (peek) and checking if the stack contains elements (isEmpty). There are many ways to implement this structure, but we have defined our own stack and implemented corresponding methods.<br/> </p1>
+			
+            <h2> <p2 class="tab">  Python:</br></p2></h2>
+			
+			<div id="codebox">
+            <pre>
+			<p class="tab"> <code>  
+class Stack:
+	def __init__(self):
+		self.stack = []
+	
+	def push(self, data):
+		self.stack.append(data)
+		
+	def pop(self, data):
+		temp = self.stack.pop()
+		return temp
+		
+	def peek(self):
+		if stack:
+			return stack[-1] 
+		else:
+			return None
+		
+	def isEmpty(self):
+		if self.stack == []:
+			return True
+		else:
+			return False
+            </code>
+			</pre>
+			
+			</div>
+			
+			<p3 class="tab"> Big O Analysis:</p3>
+				<p class = "tab2"> Push: O()<br/>
+                <p class = "tab3"> [Some Explanation]<br/>
+				<p class = "tab2"> Pop: O()<br/>
+                <p class = "tab3"> [Some Explanation]<br/>
+				<p class = "tab2"> Peek: O() <br/>
+                <p class = "tab3"> [Some Explanation]<br/>
+                <p class = "tab2"> isEmpty: O() <br/>
+                <p class = "tab3"> [Some Explanation]<br/><br/></p>
+			
+		 <h2> <p2 class="tab">  Racket:</br></p2></h2>
+			
+			<div id="codebox">
+            <pre>
+			<p class="tab"> 
+            <code> 
+#lang racket
+
+(define my-stack '(1 2 3 4 5 6 7))
+
+(define (printstack)
+(define (printhelper  my-stack)
+  (if (empty?) '()
+      (display my-stack)))
+  (printhelper  my-stack))
+
+(define (pop)
+ (define (pop-helper my-stack)
+  
+   (set!  my-stack (cdr  my-stack))
+   )
+ (pop-helper my-stack))
+
+(define (push x)
+(define (push-helper x  my-stack)
+  (set!  my-stack (cons x  my-stack)))
+(push-helper x my-stack))
+
+(define (empty?)
+ (define (empty-helper  my-stack)
+   (if (null?  my-stack) #t
+      #f))
+  (empty-helper my-stack))
+            </code>
+            </pre>
+            </br></p>
+			</div>
+			
+			<p3 class="tab"> Big O Analysis:</p3>
+				<p class = "tab2"> Push: O()<br/>
+                <p class = "tab3"> [Some Explanation]<br/>
+				<p class = "tab2"> Pop: O()<br/>
+                <p class = "tab3"> [Some Explanation]<br/>
+				<p class = "tab2"> Peek: O() <br/>
+                <p class = "tab3"> [Some Explanation]<br/>
+                <p class = "tab2"> isEmpty: O() <br/>
+                <p class = "tab3"> [Some Explanation]<br/><br/></p>
+			
+		 <h2> <p2 class="tab">  Haskell:</br></p2></h2>
+			
+			<div id="codebox">
+            <pre>
+			<p class="tab"> <code>
+import Data.List
+import Data.Bool
+
+data MyStack a = MyStack [a] deriving (Show, Eq)
+
+myPush :: a -> MyStack a -> MyStack a
+myPush b (MyStack xs) =  MyStack(b:xs)
+
+myPop ::  MyStack a -> MyStack a
+myPop (MyStack xs) = if length xs == 0 
+			then error "Empty Stack" else MyStack(tail xs)
+
+myPeek:: MyStack a -> a
+myPeek (MyStack (x:xs)) = if length xs == 0 
+			then error "Empty Stack" else x
+
+myIsEmpty :: MyStack a -> Bool
+myIsEmpty (MyStack xs) = if length xs == 0 
+			then True else False
+           	</code>
+            </pre>
+			</div>
+			
+			<p3 class="tab"> Big O Analysis:</p3>
+				<p class = "tab2"> Push: O()<br/>
+                <p class = "tab3"> [Some Explanation]<br/>
+				<p class = "tab2"> Pop: O()<br/>
+                <p class = "tab3"> [Some Explanation]<br/>
+				<p class = "tab2"> Peek: O() <br/>
+                <p class = "tab3"> [Some Explanation]<br/>
+                <p class = "tab2"> isEmpty: O() <br/>
+                <p class = "tab3"> [Some Explanation]<br/><br/></p>
+			
+		
+			
+            <p2 class="tab">At a Glance</p2>
+           <p3><table>
+            <tr bgcolor = #D3D3D3>
+              
+              <th>Methods</th>
+              <th>Python</th>
+              <th>Racket</th>
+              <th>Haskell</th>
+            </tr>
+            <tr>
+              <td>Push</td>
+              <td>O()</td>
+              <td>O()</td>
+              <td>O()</td>
+            </tr>
+            <tr>
+              <td>Pop</td>
+              <td>O()</td>
+              <td>O()</td>
+              <td>O()</td>
+            </tr>
+            <tr>
+            <td>Peek</td>
+              <td>O()</td>
+              <td>O()</td>
+              <td>O()</td>
+            </tr>
+            <tr>
+            <td>isEmpty</td>
+              <td>O()</td>
+              <td>O()</td>
+              <td>O()</td>
+            </tr>
+          </table>
+
+            </p3>
+            
+            
+
+			<p2 class="tab"> Functional vs Imperative</p2>
+			<p class="tab"> Which language is better to use? Why? Talk about ease of implementation.<br/><br/></p>
+			<p2 class="tab">Static vs Dynamic</p2>
+			<p class="tab"> Which language is better to use? Why? Talk about ease of implementation.<br/></p>
+            <p4 class="tab"> View More DS: <br/>
+             <p4 class= "tab">Back to Main: </p4>
+		</div>
+	</body>
+</html>
