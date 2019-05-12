@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<link href="https://fonts.googleapis.com/css?family=Cardo|Dancing+Script|Inconsolata|Lato|Raleway" rel="stylesheet">
+<style>
+    #demobox {
+      background-color: #cfc ;
+      padding: 10px ;
+      border: 1px solid green ;
+    }
+    table,th,td {
+  		margin: 40px;
+        border: 1px solid black;
+  		border-collapse: collapse;
+        width: 500px;
+        padding:5px;
+        
+    }
+   
+	#codebox{
+      background-color: #D9F6D9;
+      padding: 5px;
+      width: 600px;
+      border: 1.3px solid green;
+      margin: 40px;
+	}
+	
+	code{
+		font-family:monospace;
+	}
+	h1{
+    	 font-family: 'Dancing Script', Georgia, Times, serif;
+         font-size: 59px;
+         line-height: 60px;
+         text-shadow: 4px 4px 4px #aaa;
+         margin:10px;
+    }
+    h2{
+    	font-family: 'Raleway', sans-serif;
+        font-size:21px;
+    }
+    p1{
+     font-family: 'Cardo', Georgia, Times, serif;
+     font-size: 15px;
+     line-height: 20px;
+     }
+    p2{
+     font-family: 'Cardo', Georgia, Times, serif;
+     font-size: 23px;
+     line-height: 20px;
+     }
+    p3{
+     font-family: 'Lato', sans-serif;
+     font-size: 17px;
+     line-height: 20px;
+    }
+    p4{
+   
+    font-family: 'Inconsolata', monospace;
+    font-size:13px;
+    line-height: 15px;
+    }
+    
+</style>
+
+<style type = "text/css">
+			<!--
+			.tab {margin-left: 30px;}
+			-->
+			
+			<!--
+			.tab2 {margin-left: 60px;}
+			-->
+            <!--
+			.tab3 {margin-left: 80px;}
+			-->
+          
+</style>
+
+
+<html>
+	<body>
+    	
+		<div class= "Binary Search Tree">
+		
+		
+			<h1>Stacks</h1>
+			<p1 class="tab"> talk about the DS <br/> </p1>
+			
+            <h2> <p2 class="tab">  Python:</br></p2></h2>
+			
+			<div id="codebox">
+            <pre>
+			<p class="tab"> <code>  
+#BST Implementation
+
+#BST Node
+class BSTNode(object):
+	
+	def __init__(self, data):
+		self.data = data
+		self.left = None
+		self.right = None
+		
+#Insert Method
+def insert(root, data):
+	if root is None:
+		root = Node(data)
+		return root
+	
+	if data < root.data:
+		root.left = insert(root.left, data)
+	elif data > root.data:
+		root.right = insert(root.right, data)
+		
+	return root
+
+		
+#Min value node - returns node with the smallest data in the tree
+def minVal(root):
+	ptr = root
+	
+	while(ptr.left is not None):
+		ptr = ptr.left
+		
+	return ptr
+					
+#Delete Method
+def delete(root, data):
+	if root is None:
+		return root
+	
+	if data < root.data:
+		root.left = delete(root.left, data)
+	elif data > root.data:
+		root.right = delete(root.right, data)
+	else:
+		if root.left is None:
+			temp = root.right
+			root = None
+			return temp
+		elif root.right is None:
+			temp = root.left
+			root = None
+			return temp
+		else: # two children
+			temp = minVal(root.right)
+			root.data = temp.data
+			root.right = delete(root.right, temp.data)
+			
+	return root	
+
+            </code>
+			</pre>
+			
+			</div>
+			
+			<p3 class="tab"> Big O Analysis:</p3>
+				<p class = "tab2"> Push: O(1)<br/>
+                <p class = "tab3"> [Some Explanation]<br/>
+				<p class = "tab2"> Pop: O(1)<br/>
+                <p class = "tab3"> [Some Explanation]<br/>
+				<p class = "tab2"> Peek: O(1) <br/>
+                <p class = "tab3"> [Some Explanation]<br/>
+                <p class = "tab2"> isEmpty: O(1) <br/>
+                <p class = "tab3"> [Some Explanation]<br/><br/></p>
+			
+		 <h2> <p2 class="tab">  Racket:</br></p2></h2>
+			
+			<div id="codebox">
+            <pre>
+			<p class="tab"> 
+            <code> 
+insert code
+            </code>
+            </pre>
+            </p>
+			</div>
+			
+			<p3 class="tab"> Big O Analysis:</p3>
+				<p class = "tab2"> Push: O(1)<br/>
+                <p class = "tab3"> Explain <br/>
+				<p class = "tab2"> Pop: O(1)<br/>
+                <p class = "tab3"> [Some Explanation]<br/>
+				<p class = "tab2"> Peek: O(1) <br/>
+                <p class = "tab3"> [Some Explanation]<br/>
+                <p class = "tab2"> isEmpty: O(1) <br/>
+                <p class = "tab3"> [Some Explanation]<br/><br/></p>
+			
+		 <h2> <p2 class="tab">  Haskell:</br></p2></h2>
+			
+			<div id="codebox">
+            <pre>
+			<p class="tab"> <code>
+import Data.List
+import Data.Bool
+import Data.Ord
+
+data BST a= Empty | Node a (BST a) (BST a) deriving (Eq, Ord, Show, Read)
+
+makeTree :: (Ord a) => [a] -> BST a
+makeTree x = foldr insertNode Empty $ reverse x
+
+createNode :: a -> BST a
+createNode val = Node val Empty Empty
+
+insertNode :: (Ord a) => a -> BST a -> BST a
+insertNode x Empty = createNode x
+insertNode x (Node n lt rt) 
+	|x == n = Node x lt rt
+	|x < n = Node n (insertNode x lt) rt
+	|x > n = Node n lt (insertNode x rt)
+	 
+isElem :: (Ord a) => a -> BST a -> Bool
+isElem x Empty = False
+isElem x (Node n lt rt)
+	|x < n = isElem x lt
+	|x > n = isElem x rt
+	|otherwise = True
+
+deleteNode :: (Ord a) => a -> BST a -> BST a
+deleteNode x Empty = Empty 
+deleteNode x (Node n lt rt)
+	|isElem x (Node n lt rt) == False = error "Target is not in tree"
+deleteNode x (Node n lt rt)
+	|x < n = Node n (deleteNode x lt) rt -- trav left
+	|x > n = Node n lt (deleteNode x rt) -- trav right
+	|x == n = if lt == Empty -- one right child
+				then rt
+				else 
+					if rt == Empty -- one left child
+					then lt
+					else (Node (treeMin rt) lt newRT) 
+					where newRT = deleteNode (treeMin rt) rt 
+
+treeMin :: (Ord a) => BST a -> a
+treeMin (Node n Empty rt) = n
+treeMin (Node n lt rt) = treeMin lt
+           	</code>
+            </pre>
+			</div>
+			
+			<p3 class="tab"> Big O Analysis:</p3>
+				<p class = "tab2"> Push: O(1)<br/>
+                <p class = "tab3"> Explain <br/>
+				<p class = "tab2"> Pop: O(1)<br/>
+                <p class = "tab3"> Explain <br/>
+				<p class = "tab2"> Peek: O(1) <br/>
+                <p class = "tab3"> Explain<br/>
+                <p class = "tab2"> isEmpty: O(1) <br/>
+                <p class = "tab3"> Explain<br/><br/></p>
+			
+		
+			
+            <p2 class="tab">At a Glance</p2>
+           <p3><table>
+            <tr bgcolor = #D3D3D3>
+              
+              <th>Methods</th>
+              <th>Python</th>
+              <th>Racket</th>
+              <th>Haskell</th>
+            </tr>
+            <tr>
+              <td>Push</td>
+              <td>O(1)</td>
+              <td>O(1)</td>
+              <td>O(1)</td>
+            </tr>
+            <tr>
+              <td>Pop</td>
+              <td>O(1)</td>
+              <td>O(1)</td>
+              <td>O(1)</td>
+            </tr>
+            <tr>
+            <td>Peek</td>
+              <td>O(1)</td>
+              <td>O(1)</td>
+              <td>O(1)</td>
+            </tr>
+            <tr>
+            <td>isEmpty</td>
+              <td>O(1)</td>
+              <td>O(1)</td>
+              <td>O(1)</td>
+            </tr>
+          </table>
+
+            </p3>
+            
+            
+
+			<p2 class="tab"> Functional vs Imperative</p2>
+			<p class="tab"> Which language is better to use? Why? Talk about ease of implementation.<br/><br/></p>
+			<p2 class="tab">Static vs Dynamic</p2>
+			<p class="tab"> Which language is better to use? Why? Talk about ease of implementation.<br/></p>
+            <p4 class="tab"> View More DS: <br/>
+             <p4 class= "tab">Back to Main: </p4>
+		</div>
+	</body>
+</html>
+
