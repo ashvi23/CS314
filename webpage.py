@@ -28,10 +28,21 @@ def data_structure():
 	output = 'Data Structures'
 	return output
 
-@app.route('/Stacks/')
+@app.route('/Stacks')
+def stacks():
+	return render_template('stacks.html')
+
+@app.route('/Linklist')
+def stacks():
+	return render_template('stacks.html')
+@app.route('/BST')
+def stacks():
+	return render_template('stacks.html')
+@app.route('/Queues')
 def stacks():
 	return render_template('stacks.html')
 
 if __name__ == '__main__':
 	port = int(os.environ.get('PORT', 5000))
 	app.run(host='0.0.0.0', port = port)
+
