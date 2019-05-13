@@ -31,7 +31,7 @@
          font-size: 59px;
          line-height: 60px;
          text-shadow: 4px 4px 4px #aaa;
-         margin:10px;
+         margin:70px;
     }
     h2{
     	font-family: 'Raleway', sans-serif;
@@ -48,6 +48,7 @@
      font-family: 'Cardo', Georgia, Times, serif;
      font-size: 15px;
      line-height: 20px;
+     margin: 10px;
      }
     p2{
      font-family: 'Cardo', Georgia, Times, serif;
@@ -89,8 +90,8 @@
 		<div class= "Binary Search Tree">
 		
 		
-			<h1>Binary Search Tree</h1>
-			<p1 class="tab"> talk about the DS <br/> </p1>
+			<h1><center>Binary Search Tree</center></h1>
+			<p1 class="tab"> Binary Search Trees (BSTs) are a node-based data structure, that are a subset of so -called data "trees", and are used to sort and store data (based on a total order). Each node of a BST has a left and right "child", which is a node like itself. Right children are classically greater in size than their parent, and left nodes are smaller. This structure lends the BST a recursive property that allows for ease of traversal. When searching a BST, decisions are made based on comparisons between these node values. </p1></br><p1 class="tab">The functions implemented below include insertion and deletion, and it's worth noting that most of the differences in implementation have to do with how the data structures themselves are represented and created in each language, and not with how the functions are coded, which is all relatively straight forward. <br/> </p1>
 			
             <h2> <p2 class="tab">  Python:</br></p2></h2>
 			
@@ -161,20 +162,20 @@ def delete(root, data):
 			</div>
 			
 			<p3 class="tab"> Big O Analysis:</p3>
-				<p class = "tab2"> Insert: O(log n)<br/>
-                <p class = "tab3"> [Some Explanation]<br/>
-				<p class = "tab2"> Delete: O(log n)<br/>
-                <p class = "tab3"> [Some Explanation]<br/>
-				<p class = "tab2"> : O(1) <br/>
-                <p class = "tab3"> [Some Explanation]<br/>
-                <p class = "tab2"> isEmpty: O(1) <br/>
-                <p class = "tab3"> [Some Explanation]<br/><br/></p>
+			<p class = "tab2"> Insert: O(log n)<br/>
+                <p class = "tab3"> The recursive structure of the BST produces a recursive algorithm. A BST with n nodes necessarily has at least log n levels (this would be assuming that each central node would have both a left and a right child), so on average, in a well-structured BST, you can expect to find a given node in O(log n) time. However, what we have not represented is the worst case, in which a tree becomes completely skewed to the right or left, where each node is at a new level. In that case, search time would be O(n). Insertion is made up of searching (O(log n)), and then creating and attaching a new node containing the desired value as a child of another node, or of the root, if no insertions have yet been made, which can be done in O(1). 
+<p class="tab3">As for the actual data structure, the nodes of the BST were implemented using a class, which is the mode of object orientation in Python. Pointers were assigned in order to keep place inside of the tree, and were passed down and then up through each recursive call.</br>
+		<p class = "tab2"> Delete: O(log n)<br/>
+                <p class = "tab3"> Deletion in particular is constituted of searching (O(log n)), and if the value exists in the tree, then removing the node and replacing it, which is divided up into cases:
+<p class="tab3">1. The node has no children: Just uncouple the node from its parent -> O(1)</p>
+<p class="tab3">2. The node has one child (left or right): Set the current node equal to the subtree containing it's child -> O(1)</p>
+<p class="tab3">3. The node has both children: Find the minimum value in the right subtree, set the current node's value equal to the minimum value, and then recurse down to the minimum node to perform the same operation and delete it -> O(log n)</p>
+<br/><br/></p> 		
+<h2> <p2 class="tab">  Racket:</br></p2></h2>
 			
-		 <h2> <p2 class="tab">  Racket:</br></p2></h2>
-			
-			<div id="codebox">
+<div id="codebox">
             <pre>
-			<p class="tab"> 
+		<p class="tab"> 
             <code> 
 #lang racket
 (require racket/trace)
@@ -249,14 +250,14 @@ def delete(root, data):
 			</div>
 			
 			<p3 class="tab"> Big O Analysis:</p3>
-				<p class = "tab2"> Push: O(1)<br/>
-                <p class = "tab3"> Explain <br/>
-				<p class = "tab2"> Pop: O(1)<br/>
-                <p class = "tab3"> [Some Explanation]<br/>
-				<p class = "tab2"> Peek: O(1) <br/>
-                <p class = "tab3"> [Some Explanation]<br/>
-                <p class = "tab2"> isEmpty: O(1) <br/>
-                <p class = "tab3"> [Some Explanation]<br/><br/></p>
+				<p class = "tab2"> Insert: O(log n)<br/>
+                <p class = "tab3"> In Racket, the steps to insertion amount to O(log n), searching (O(log n)). Searching is done using car and caddr to accessing the left/right children to recursively traverse the tree. And insertion (O(1)) in this case means adding a new sublist to the overall list, which represents the tree as a whole.  <p class = "tab3">The difference in data structure implementation comes from the fact that we wanted to demonstrate the functional aspect of Racket coding, and so did not use the in-built Class or Struct implementations that Racket has, because, in the same way people use the word pythonic, it wasn't Racket-like, however, it is entirely possible to implement a BST using the above-mentioned tools. And, to be honest, we did cheat by using set! (assignment) in order to maintain a global tree. The tree is flattened into a set of nested lists, with each set of parentheses mapping to a subtree. A single node is made up of a value and two subtrees (sublists as they are implemented here).  <br/>
+				<p class = "tab2"> Delete: O(log n)<br/>
+                <p class = "tab3"> In Racket, the steps to deletion amount to O(log n), searching (O(log n)), and deletion, which is divided into the same universal cases enumerated above:
+<p class="tab3">1. The node has no children: Return an empty list -> O(1)</p>
+<p class="tab3">2. The node has one child (left or right): Set the current node equal to the sublist of it's existing child -> O(1)</p>
+<p class="tab3">3. The node has both children: Find the minimum value in the right subtree -> O(log n), set the current node's value equal to the minimum value -> O(1), and then recurse down to the minimum node to perform the same operation and delete it -> O(log n)</p>
+.<br/>
 			
 		 <h2> <p2 class="tab">  Haskell:</br></p2></h2>
 			
@@ -312,17 +313,11 @@ treeMin (Node n lt rt) = treeMin lt
 			</div>
 			
 			<p3 class="tab"> Big O Analysis:</p3>
-				<p class = "tab2"> Push: O(1)<br/>
+				<p class = "tab2"> Insert: O(1)<br/>
                 <p class = "tab3"> Explain <br/>
-				<p class = "tab2"> Pop: O(1)<br/>
+				<p class = "tab2"> Delete: O(1)<br/>
                 <p class = "tab3"> Explain <br/>
-				<p class = "tab2"> Peek: O(1) <br/>
-                <p class = "tab3"> Explain<br/>
-                <p class = "tab2"> isEmpty: O(1) <br/>
-                <p class = "tab3"> Explain<br/><br/></p>
-			
 		
-			
             <p2 class="tab">At a Glance</p2>
            <p3><table>
             <tr bgcolor = #D3D3D3>
@@ -333,28 +328,16 @@ treeMin (Node n lt rt) = treeMin lt
               <th>Haskell</th>
             </tr>
             <tr>
-              <td>Push</td>
-              <td>O(1)</td>
-              <td>O(1)</td>
-              <td>O(1)</td>
+              <td>Insert</td>
+              <td>O(log n)</td>
+              <td>O(log n)</td>
+              <td>O(log n)</td>
             </tr>
             <tr>
-              <td>Pop</td>
-              <td>O(1)</td>
-              <td>O(1)</td>
-              <td>O(1)</td>
-            </tr>
-            <tr>
-            <td>Peek</td>
-              <td>O(1)</td>
-              <td>O(1)</td>
-              <td>O(1)</td>
-            </tr>
-            <tr>
-            <td>isEmpty</td>
-              <td>O(1)</td>
-              <td>O(1)</td>
-              <td>O(1)</td>
+              <td>Delete</td>
+              <td>O(log n)</td>
+              <td>O(log n)</td>
+              <td>O(log n)</td>
             </tr>
           </table>
 
@@ -363,11 +346,11 @@ treeMin (Node n lt rt) = treeMin lt
             
 
 			<p2 class="tab"> Functional vs Imperative</p2>
-			<p class="tab"> Which language is better to use? Why? Talk about ease of implementation.<br/><br/></p>
+			<p class="tab"> Imperative languages, generally speaking, are going to be more suitable for coding data structures, generally speaking, because they modify states in memory, which data structures are normally composed of. Functional languages are designed to compute expressions, which is a more awkward framework to map a data structure onto. Trees in particular are complex structures with multiple elements that are tricky to express in those terms.<br/><br/></p>
 			<p2 class="tab">Static vs Dynamic</p2>
-			<p class="tab"> Which language is better to use? Why? Talk about ease of implementation.<br/></p>
-            <p4 class="tab"> View More DS: <br/>
-             <h3><a href="/#"> Back to Main </a></h4>
+			<p class="tab"> Static languages require types of variables to be enumerated at compile time, while dynamic languages don't have that restriction. For a slightly unwieldy structure like a tree, static languages provide structure that could be useful to a programmer who doesn't want to spend hours debugging. but neither static nor dynamic languages are strictly prohibitive toward this data organizer.<br/></p>
+            <p4 class="tab"> View More DS: <a href="/Queues">Queues</a>, <a href="/Linkedlist"> Linklist</a>, <a href="/Stacks"> Binary Search Tree</a><br/>
+              <p4 class= "tab"><a href="/#"> Back to Main </a> </p4>
 		</div>
 	</body>
 </html>
