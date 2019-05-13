@@ -82,7 +82,7 @@
 		<div class= "Queues">
 		
 		
-			<h1>Queues</h1>
+			<h1><center>Queues<center/></h1>
 			<p1 class="tab">Queues are a great abstract data structure. The queues implemented below use a FIFO approach to programming. FIFO is First In First Out, which means that the element that was entered first is the first one to exit the queue, and the newest element that entered the queue is the last one to exit. This approach, much like the name suggests, is similar to a queue or a line. The below image from geeksforgeeks illustrates the concept extremely well. In this tutorial, we implement enqueue (insertion), dequeue (deletion), peek (view first element), and isEmpty. We have created our own queue class/data type and corresponding functions. <br/> </p1>
 			<p class ="tab"> <img src="https://media.geeksforgeeks.org/wp-content/uploads/FIFO.jpg" alt="FIFO approach illustration"> </p>
             <h2> <p2 class="tab">  Python:</br></p2></h2>
@@ -124,13 +124,13 @@ class Queue:
 			
 			<p3 class="tab"> Big O Analysis:</p3>
 				<p class = "tab2"> Enqueue: O(1)<br/>
-                <p class = "tab3"> [Some Explanation]<br/>
+                <p class = "tab3"> In our Python implementation, the queue is a simple python list (a predefined type) that's had predefined methods wrapped up for it within a Class. The enqueue method consists of a wrapper for ".insert", which already exists as a list method, and is of complexity O(1).<br/>
 				<p class = "tab2"> Dequeue: O(1)<br/>
-                <p class = "tab3"> [Some Explanation]<br/>
+                <p class = "tab3"> A similar situation applies to dequeue as does to enqueue, the dequeue method is simply ".pop" (O(1)) enrobed in a new method.<br/>
 				<p class = "tab2"> Peek: O(1) <br/>
-                <p class = "tab3"> [Some Explanation]<br/>
+                <p class = "tab3"> <br/>
                 <p class = "tab2"> isEmpty: O(1) <br/>
-                <p class = "tab3"> [Some Explanation]<br/><br/></p>
+                <p class = "tab3"> isEmpty checks if the current queue is equivalent to the empty list, and returns the corresponding boolean (O(1)). <br/><br/></p>
 			
 		 <h2> <p2 class="tab">  Racket:</br></p2></h2>
 			
@@ -154,16 +154,20 @@ class Queue:
    (set!  my-q (reverse (cdr (reverse my-q)))))
    )
  (dequeue-helper))
+
 (define (enqueue x)
 (define (enqueue-helper x)
   (set!  my-q (cons x  my-q)))
 (enqueue-helper x))
 
-(define (empty?)
- (define (empty-helper  my-q)
+(define (isEmpty)
+ (define (isEmpty-helper)
    (if (null?  my-q) #t
       #f))
-  (empty-helper my-q))
+  (isEmpty-helper))
+
+(define (peek)
+  (last my-q))
             </code>
             </pre>
             </p>
@@ -171,13 +175,13 @@ class Queue:
 			
 			<p3 class="tab"> Big O Analysis:</p3>
 				<p class = "tab2"> Enqueue: O(1)<br/>
-                <p class = "tab3"> [Some Explanation]<br/>
-				<p class = "tab2"> Dequeue: O(1)<br/>
-                <p class = "tab3"> [Some Explanation]<br/>
-				<p class = "tab2"> Peek: O(1) <br/>
-                <p class = "tab3"> [Some Explanation]<br/>
+                <p class = "tab3"> We use "cons" once to add to the beginning of the list, which takes O(1) time. <br/>
+				<p class = "tab2"> Dequeue: O(n)<br/>
+                <p class = "tab3"> In Racket, lists, which is what the queue was coded in, are implementions of singly linked lists. In order to access the end (in this framework, technically the front), one must traverse to each position before it. In a list of n nodes, this means it takes O(n) time. This particular code uses the reverse function, which has O(n) time complexity, to access the last node, and then uses car to pop said last value off of the end (O(1)), finally restoring it to its original order using reverse (O(n)).<br/>
+				<p class = "tab2"> Peek: O(n) <br/>
+                <p class = "tab3"> As mentioned before, accessing the last node of a list takes O(n) time, even using the in-built function last, which the given peek function is simply a wrapper for.<br/>
                 <p class = "tab2"> isEmpty: O(1) <br/>
-                <p class = "tab3"> [Some Explanation]<br/><br/></p>
+                <p class = "tab3"> Simply using the "null?" procedure (O(1)) once lets us know if our list contains any values.<br/><br/></p>
 			
 		 <h2> <p2 class="tab">  Haskell:</br></p2></h2>
 			
@@ -209,13 +213,13 @@ myPeek (MyQueue (x:xs)) = if length xs == 0
 			
 			<p3 class="tab"> Big O Analysis:</p3>
 				<p class = "tab2"> Enqueue: O(1)<br/>
-                <p class = "tab3"> [Some Explanation]<br/>
+                <p class = "tab3"> As in the previous two languages, the queue implemented in Haskell is a list that has been wrapped to be it's own Haskell data type. Enqueue is done using append on the given queue, which takes only O(1) time.<br/>
 				<p class = "tab2"> Dequeue: O(1)<br/>
-                <p class = "tab3"> [Some Explanation]<br/>
+                <p class = "tab3"> Dequeue is done by taking the "tail" of the queue (aka list), in the case that the list isn't empty, which only has to be done once, hence it has O(1) complexity.<br/>
 				<p class = "tab2"> Peek: O(1) <br/>
-                <p class = "tab3"> [Some Explanation]<br/>
+                <p class = "tab3"> Peek uses pattern matching to remove the first item from the list and return it, in O(1) time.<br/>
                 <p class = "tab2"> isEmpty: O(1) <br/>
-                <p class = "tab3"> [Some Explanation]<br/><br/></p>
+                <p class = "tab3"> isEmpty applies the length function to the queue and returns true if its length evaluates to one, and false otherwise. This is done a single time, so it's complexity is O(1).<br/><br/></p>
 			
 		
 			
@@ -237,13 +241,13 @@ myPeek (MyQueue (x:xs)) = if length xs == 0
             <tr>
               <td>Dequeue</td>
               <td>O(1)</td>
-              <td>O(1)</td>
+              <td>O(n)</td>
               <td>O(1)</td>
             </tr>
             <tr>
             <td>Peek</td>
               <td>O(1)</td>
-              <td>O(1)</td>
+              <td>O(n)</td>
               <td>O(1)</td>
             </tr>
             <tr>
@@ -259,9 +263,9 @@ myPeek (MyQueue (x:xs)) = if length xs == 0
             
 
 			<p2 class="tab"> Functional vs Imperative</p2>
-			<p class="tab"> Which language is better to use? Why? Talk about ease of implementation.<br/><br/></p>
+			<p class="tab"> The functional languages that we showcase on this site are list-comprehension based languages, and therefore have a strong catalogue of prewritten procedures that come in handy for this structure, however, Python is also well-equipped in that manner.Haskell, with the use of pattern matching and its "data type" feature, makes queues straightforward to implement. However, Racket is unexpectedly not a good choice for this data structure seeing as it's implementation of lists requires O(n) time to access the last index. Racket does include a data structure called a vector, which functions like an array in other languages, but it doesn't have all of the pre-written functions that lists do. All in all, Python seems to have an edge in this scenario as well. The entire data structure is well-encapsulated within its own class, and has a constant time complexity for all of the functions listed here.<br/><br/></p>
 			<p2 class="tab">Static vs Dynamic</p2>
-			<p class="tab"> Which language is better to use? Why? Talk about ease of implementation.<br/></p>
+			<p class="tab"> A static language binds a name to a type and object, whereas a dynamic laguage names are only bound to and object. Haskell, is a statically typed language and made implementing stacks very easy. With Haskell, there is a guarantee that the elements pushed will be of the same type. There wasn't an issue in decalring what type to make the stack because I was able to declare it as [a]. This allowed me to create a stack of Ints, Strings, Chars etc with only this implementation. Python, a dynamically typed language, also made implementing stacks very easy. There was no need to worry if a particular type will work with the declared functions, since the language does not bind to types. Both of the languages have the same Big O of O(1), which means, deciding which language is better suited for stacks comes down to the use of the stack. If the stack is being used to store various types of data, python would be a better fit.<br/></p>
             <p4 class="tab"> View More DS: <br/>
              <p4 class= "tab">Back to Main: </p4>
 		</div>
