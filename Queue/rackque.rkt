@@ -9,7 +9,7 @@
   (printhelper))
 
 (define (dequeue)
- (define (dequeue-helper) ;;anonymous function?
+ (define (dequeue-helper)
    (if (null? my-q) (set!  my-q '());;if list is null, set stack equal to empty list
    (set!  my-q (reverse (cdr (reverse my-q)))));;else remove last item from list
    )
@@ -20,8 +20,11 @@
   (set!  my-q (cons x  my-q)))
 (enqueue-helper x))
 
-(define (empty?)
- (define (empty-helper  my-q)
+(define (isEmpty)
+ (define (isEmpty-helper)
    (if (null?  my-q) #t
       #f))
-  (empty-helper my-q))
+  (isEmpty-helper))
+
+(define (peek)
+  (last my-q))
