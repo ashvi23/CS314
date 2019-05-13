@@ -82,8 +82,8 @@
 		<div class= "Link Lists">
 		
 		
-			<h1>Link Lists</h1>
-			<p1 class="tab"> talk about the DS <br/> </p1>
+			<h1><center>Linked Lists</center></h1>
+			<p1 class="tab"> Linked lists are a data structure used to linearly store information. The basic usit of a linked list is a node, which is attached to the rest of the list by- you guessed it -links! Some implementations use them to store ordered information, but that isn't their most basic function. They can be used to store anything! The languages we've laid out here all have lists as a built in data type, however that isn't a limitation, simply another option.<br/> </p1>
 			
             <h2> <p2 class="tab">  Python:</br></p2></h2>
 			
@@ -140,16 +140,10 @@ class LL:
 			</div>
 			
 			<p3 class="tab"> Big O Analysis:</p3>
-				<p class = "tab2"> Insert: O() <br/>
-                <p class = "tab3"> [Some Explanation]<br/>
-				<p class = "tab2"> Delete: O()<br/>
-                <p class = "tab3"> [Some Explanation]<br/>
-				<p class = "tab2"> getNext O() <br/>
-                <p class = "tab3"> [Some Explanation]<br/>
-                <p class = "tab2"> getData O() <br/>
-                <p class = "tab3"> [Some Explanation]<br/>
-                <p class = "tab2"> setNext O(1) <br/>
-                <p class = "tab3"> [Some Explanation]<br/><br/></p>
+				<p class = "tab2"> Insert: O(1) <br/>
+                <p class = "tab3"> In Python, the linked list is constituted from two classes, the Node class, and the LL class. The Node class allows the user to perform methods on individual nodes, such as accessing node values and manipulating them, while the LL object is composed of Node objects, and implements methods pertaining to the entire LL object, such as insertion and deletion. Insert simply creates a node, and then sets the node after the head, the head being placeholder for the front of the list, equal to this node with the setNext method from the node class. Creating the node and setting head equal to it are constant operations, and take O(1) time.<br/>
+				<p class = "tab2"> Delete: O(1)<br/>
+                <p class = "tab3"> Delete traverses the list until it finds a node containing the same value, using a pointer to hold its place in the list, and a pointer to maintain a hold on the node behind the current node. Once it has located a node it is equal to, that node is eliminated by destroying it's link in the list. Using setNext and getNext, the node before the current node has it's next value set to the value of the node directly after the current node. The traversal takes O(n) time, while the rerouting takes O(1) time. <br/><br/></p>
 			
 		 <h2> <p2 class="tab">  Racket:</br></p2></h2>
 			
@@ -157,41 +151,72 @@ class LL:
             <pre>
 			<p class="tab"> 
             <code> 
+#lang racket
+(define LL '()) 
 
+(define (add val)
+(set! LL (cons val LL))
+	)
+
+(define (delete val)
+(remove val LL))
             </code>
             </pre>
             </p>
 			</div>
 			
 			<p3 class="tab"> Big O Analysis:</p3>
-				<p class = "tab2"> method: O(1)<br/>
-                <p class = "tab3"> Explain <br/>
-				<p class = "tab2"> method: O(1)<br/>
-                <p class = "tab3"> [Some Explanation]<br/>
-				<p class = "tab2"> method: O(1) <br/>
-                <p class = "tab3"> [Some Explanation]<br/>
-                <p class = "tab2"> method: O(1) <br/>
-                <p class = "tab3"> [Some Explanation]<br/><br/></p>
+				<p class = "tab2"> Add: O(1)<br/>
+                <p class = "tab3"> This version of a function to add to the beginning of a linked list is made all the easier by the fact that Racket lists are singly linked lists. The function shown here is a wrapper for the cons function (O(1)), and is simply consing on to a list which has been made global and is being assigned using "set!". As described elsewhere, the reasoning behind not using Racket's Class or Struct implementations is that it doesn't capture the spirit of Racket. However, a compromise has been made in using set!, because maintaining a global structure is made much simpler with "set!". <br/>
+				<p class = "tab2"> Delete: O(n)<br/>
+                <p class = "tab3"> As before, this function is a wrapper for the already extant remove, which has to search the list for instances of the given value in order to remove them. It searches the entire list to do so, hence, O(n).<br/><br/></p>
 			
 		 <h2> <p2 class="tab">  Haskell:</br></p2></h2>
 			
 			<div id="codebox">
             <pre>
 			<p class="tab"> <code>
-insert code
+import Data.List
+import Data.Bool
+
+data Linklist a = Cons a (Linklist a)| Null  deriving (Show, Eq)
+
+-- takes in list [x...y], builds (Cons x(Cons y Null))
+myBuild:: [a] -> Linklist a
+myBuild = foldr Cons Null
+
+myToList :: Linklist a -> [a]
+myToList Null = []
+myToList (Cons a ll) = a:(myToList ll)
+
+isNull :: Linklist a -> Bool
+isNull Null = True
+isNull (Cons a _) = False
+
+myhead :: Linklist a -> a
+myhead Null = error "Link List is empty"
+myhead l = case l of 
+	Cons a _ -> a
+
+myNext:: Linklist a -> Linklist a
+myNext Null = error "Next is NULL"
+myNext (Cons _ ll) = ll
+
+myInsertFront :: a -> Linklist a -> Linklist a
+myInsertFront a ll = Cons a ll
+
+myInsertEnd :: a-> Linklist a -> Linklist a
+myInsertEnd a (Cons x ll) = myBuild ( (myToList ll) ++ [a])
+
            	</code>
             </pre>
 			</div>
 			
 			<p3 class="tab"> Big O Analysis:</p3>
-				<p class = "tab2"> Push: O(1)<br/>
-                <p class = "tab3"> Explain <br/>
-				<p class = "tab2"> Pop: O(1)<br/>
-                <p class = "tab3"> Explain <br/>
-				<p class = "tab2"> Peek: O(1) <br/>
-                <p class = "tab3"> Explain<br/>
-                <p class = "tab2"> isEmpty: O(1) <br/>
-                <p class = "tab3"> Explain<br/><br/></p>
+				<p class = "tab2"> myInsertFront: O(1)<br/>
+                <p class = "tab3"> Haskell doesn't make implementing linked lists easy. In this version, we first create a list that is then turned into an object of type Linkedlist. myInsertFront uses cons and pattern matching to add a new value to the beginning of the linked list. This is a single action, so it takes O(1) time.<br/>
+				<p class = "tab2"> myInsertEnd: O(n)<br/>
+                <p class = "tab3"> Because of the difficulties of representing a linked list in Haskell, myInsertEnd must first convert the linked list into an array, in order to use append ("++") to add the value to the end. For a list of length n, myToList, one of myInsertEnds' helper methods, takes O(n) time, because it extracts the value from every element of the linked list and uses cons to append it to the end of a growing LL. myBuild then takes in the list that was created, and converts it back into a Linkedlist, using "foldr" in conjunction with "Cons", and is similar in time complexity to myToList for the same reasons.<br/><br/></p>
 			
 		
 			
@@ -205,28 +230,16 @@ insert code
               <th>Haskell</th>
             </tr>
             <tr>
-              <td>Push</td>
+              <td>Insert</td>
               <td>O(1)</td>
               <td>O(1)</td>
-              <td>O(1)</td>
+              <td>O(1)*</td>
             </tr>
             <tr>
-              <td>Pop</td>
+              <td>Delete</td>
               <td>O(1)</td>
               <td>O(1)</td>
-              <td>O(1)</td>
-            </tr>
-            <tr>
-            <td>Peek</td>
-              <td>O(1)</td>
-              <td>O(1)</td>
-              <td>O(1)</td>
-            </tr>
-            <tr>
-            <td>isEmpty</td>
-              <td>O(1)</td>
-              <td>O(1)</td>
-              <td>O(1)</td>
+              <td>N/A</td>
             </tr>
           </table>
 
@@ -235,11 +248,11 @@ insert code
             
 
 			<p2 class="tab"> Functional vs Imperative</p2>
-			<p class="tab"> Which language is better to use? Why? Talk about ease of implementation.<br/><br/></p>
+			<p class="tab"> Ultimately, for this data type, it wasn't strictly whether the language was functional or imperative that set the difficulty of the task, but the quirks of the languages themselves (although imperative languages will always be a cleaner fit when it comes to writing data structures). Haskell was by far the most irritating language to implement a linked list in, having to go the sideways route and cast/re-cast types is never elegant. Racket was by far the easiest, as the language itself has a pre-made implementation that can be wrapped to the user's liking. Python clearly shone in the assignment, as object orientation could be expected to. Mutability is a gift!<br/><br/></p>
 			<p2 class="tab">Static vs Dynamic</p2>
-			<p class="tab"> Which language is better to use? Why? Talk about ease of implementation.<br/></p>
-            <p4 class="tab"> View More DS: <br/>
-             <p4 class= "tab">Back to Main: </p4>
+			<p class="tab"> Again, as this was a relatively straightforward, short assignment, the true natures of the static and dynamic languages we profiled didn't come through fully. With an implementation like this one, it again comes down to the particulars of the language, and what it is commonly used for. Python and Racket came out on top, although dynamic languages normally have the rep of being tricky to debug down the line.<br/></p>
+                  <p4 class="tab"> View More DS: <a href="/Queues">Queues</a>, <a href="/BST"> Linklist</a>, <a href="/Stacks"> Binary Search Tree</a><br/>
+              <p4 class= "tab"><a href="/#"> Back to Main </a> </p4>
 		</div>
 	</body>
 </html>
