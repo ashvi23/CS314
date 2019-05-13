@@ -25,8 +25,7 @@ def dynamic():
 
 @app.route('/DS')
 def data_structure():
-	output = 'Data Structures'
-	return output
+	return render_template('ds.html')
 
 @app.route('/Stacks/')
 def stacks():
@@ -45,7 +44,9 @@ def queue():
 def lang():
 	return render_template('lang.html')
 
+
 if __name__ == '__main__':
 	port = int(os.environ.get('PORT', 5000))
 	app.run(host='0.0.0.0', port = port)
+
 
