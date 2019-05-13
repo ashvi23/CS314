@@ -253,8 +253,8 @@ def delete(root, data):
 				<p class = "tab2"> Insert: O(log n)<br/>
                 <p class = "tab3"> In Racket, the steps to insertion amount to O(log n), searching (O(log n)). Searching is done using car and caddr to accessing the left/right children to recursively traverse the tree. And insertion (O(1)) in this case means adding a new sublist to the overall list, which represents the tree as a whole.  <p class = "tab3">The difference in data structure implementation comes from the fact that we wanted to demonstrate the functional aspect of Racket coding, and so did not use the in-built Class or Struct implementations that Racket has, because, in the same way people use the word pythonic, it wasn't Racket-like, however, it is entirely possible to implement a BST using the above-mentioned tools. And, to be honest, we did cheat by using set! (assignment) in order to maintain a global tree. The tree is flattened into a set of nested lists, with each set of parentheses mapping to a subtree. A single node is made up of a value and two subtrees (sublists as they are implemented here).  <br/>
 				<p class = "tab2"> Delete: O(log n)<br/>
-                <p class = "tab3"> In Racket, the steps to deletion amount to O(log n), searching (O(log n)), and deletion, which is divided into the same universal cases enumerated above:
-<p class="tab3">1. The node has no children: Return an empty list -> O(1)</p>
+                <p class = "tab3"> In Racket, the steps to deletion amount to O(log n): searching (O(log n)), and deletion, which is divided into the same universal cases enumerated above:
+<p class="tab3">1. The node has no children: Insert an empty list where the old node value used to be-> O(1)</p>
 <p class="tab3">2. The node has one child (left or right): Set the current node equal to the sublist of it's existing child -> O(1)</p>
 <p class="tab3">3. The node has both children: Find the minimum value in the right subtree -> O(log n), set the current node's value equal to the minimum value -> O(1), and then recurse down to the minimum node to perform the same operation and delete it -> O(log n)</p>
 .<br/>
@@ -313,10 +313,13 @@ treeMin (Node n lt rt) = treeMin lt
 			</div>
 			
 			<p3 class="tab"> Big O Analysis:</p3>
-				<p class = "tab2"> Insert: O(1)<br/>
-                <p class = "tab3"> Explain <br/>
-				<p class = "tab2"> Delete: O(1)<br/>
-                <p class = "tab3"> Explain <br/>
+				<p class = "tab2"> Insert: O(log n)<br/>
+                <p class = "tab3"> In Haskell, insertion is, as you may have guessed, also an O(log n) procedure. Searching, as in the other two languages, take O(log n) time, and actually creating and inserting the node takes O(1) time. <p class = "tab3">Data structure implementation was done using a Haskell data type in this case, and looks very similar to the node class in Python shown above. However, the difference is that in Haskell, data types are made using value constructors, which are functions that return an object of the specified data type. <br/><br/>
+				<p class = "tab2"> Delete: O(log n)<br/>
+                <p class = "tab3"> In Haskell, the complexity of deletion is same as in the other languages, O(log n), and is composed of the same steps: searching (O(log n)), and deletion:
+<p class="tab3">1. The node has no children: Return Empty -> O(1)</p>
+<p class="tab3">2. The node has one child (left or right): Set the current node equal to the subtree of it's existing child -> O(1)</p>
+<p class="tab3">3. The node has both children: Find the minimum value in the right subtree -> O(log n), set the current node's value equal to the minimum value -> O(1), and then recurse down to the minimum node to perform the same operation and delete it -> O(log n)</p> <br/>
 		
             <p2 class="tab">At a Glance</p2>
            <p3><table>
